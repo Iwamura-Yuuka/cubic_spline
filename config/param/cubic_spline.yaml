@@ -1,0 +1,10 @@
+# 制御周波数[Hz]
+hz: 10              # ループ周波数 [Hz]
+
+# frame_id
+path_frame: "map"   # path
+
+# path関連
+# cource_length: 1.6  # 長さ [m]
+cource_length: 3.2  # 長さ [m]
+resolution: 0.05    # 軌道生成時の刻み幅 [m]

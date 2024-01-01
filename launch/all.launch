@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- config file path  -->
+    <arg name="rviz_settings" default="$(find cubic_spline)/config/rviz/cubic_spline.rviz"/>
+    <arg name="debug_path_creator_settings" default="$(find cubic_spline)/config/param/debug_path_creator.yaml"/>
+    <arg name="cubic_spline_settings" default="$(find cubic_spline)/config/param/cubic_spline.yaml"/>
+
+    <!-- node launch -->
+    <node pkg="cubic_spline" type="debug_path_creator_node" name="debug_path_creator">
+        <rosparam command="load" file="$(arg debug_path_creator_settings)"/>
+    </node>
+    <node pkg="cubic_spline" type="cubic_spline_node" name="cubic_spline" output="screen">
+        <rosparam command="load" file="$(arg cubic_spline_settings)"/>
+    </node>
+
+    <!-- rviz -->
+    <node pkg="rviz" type="rviz" name="path_rviz" args="-d $(arg rviz_settings)"/>
+
+</launch>
